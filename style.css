@@ -30,8 +30,8 @@ body {
     color: white;
     transition: opacity 0.3s, font-size 0.2s, top 0.2s;
 }
-#price{
-    margin-right: 25px;
+#RorG{
+    float: right;
 }
 #price, #RorG{
     margin-top: 40px;
