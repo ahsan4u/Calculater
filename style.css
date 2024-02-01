@@ -20,8 +20,9 @@ body {
   top: 320px; font-size: 30px; transition: top 0.2s;
 }
 .mainInputA {
-   position: fixed; left: 20px;
-   top : 290px;
+    text-align: right;
+    position: fixed; left: 20px;
+    top : 290px;
     background-color: transparent;
     border: none;
     width: 360px;
