@@ -25,7 +25,7 @@ numBtns.forEach((numBtn)=> {
           mainInput.style.fontSize = "50px";
           if(numStr.length > 13) {
             mainInput.style.fontSize = "40px";
-            if(numStr.length > 25) {
+            if(numStr.length > 17) {
              mainInput.style.fontSize = "30px";
             } else {
              mainInput.style.fontSize = "40px";
@@ -97,6 +97,7 @@ fns.forEach((fn)=> {
     if(fnText == "AC") {
       if(equal.textContent == "=") {
         numStr=""; mainInput.value = numStr;
+        mainInput.style.fontSize = "60px";
       } else if(equal.textContent.includes("=>") == true) {
         rateStr = ""; price.value = rateStr;
       } else {
@@ -107,10 +108,23 @@ fns.forEach((fn)=> {
       if(equal.textContent == "=") {
         numStr = numStr.slice(0, -1);
         mainInput.value = numStr;
-        
-        if(numStr.length < 17) {
-          mainInput.style.fontSize = "40px";
+ 
+        if(numStr.length > 11){
+          mainInput.style.fontSize = "50px";
+          if(numStr.length > 13) {
+            mainInput.style.fontSize = "40px";
+            if(numStr.length > 17) {
+             mainInput.style.fontSize = "30px";
+            } else {
+             mainInput.style.fontSize = "40px";
+            }
+          } else {
+            mainInput.style.fontSize = "50px";
+          }
+        } else {
+          mainInput.style.fontSize = "60px";
         }
+
       } else if(equal.textContent.includes("=>") == true) {
         rateStr = rateStr.slice(0, -1);
         price.value = rateStr;
