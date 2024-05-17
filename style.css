@@ -26,6 +26,7 @@ body {
     font-size: 60px;
     color: white;
     height: 270px;
+    transition: opacity 1s;
 }
 
 .feature-container {
