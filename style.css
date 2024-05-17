@@ -26,6 +26,7 @@ body {
     font-size: 40px;
     color: white;
     height: 270px;
+    direction: rt1;
 }
 
 .feature-container {
