@@ -5,40 +5,31 @@
 body {
     background-color: black;
 }
-#buttons {
-  position: relative; top: 39vh;
-}
-#secInput{
-  top: 320px;font-size: 30px; transition: top 0.2s;
-}
-#thInput{
-  top: 320px;font-size: 30px; transition: top 0.2s;
-}
-#frInput{
-  top: 320px;font-size: 30px; transition: top 0.2s;
-}
-#fvInput{
-  top: 320px; font-size: 30px; transition: top 0.2s;
-}
+
 .mainInputA {
+    display: block;
+    width: 97vw;
+    margin: 10px auto;
+    line-height: 1.5;
+    resize: none;
     text-align: right;
-    position: fixed; left: 20px;
-    top : 290px;
+    writing-mode: vertical-rl;
     background-color: transparent;
-    border: none;
-    width: 360px;
-    font-size: 40px;
-    padding-bottom: 5px;
-    color: white;
-    transition: opacity 0.3s, font-size 0.2s, top 0.2s;
+    border: none;
+    font-size: 40px;
+    color: white;
 }
-#RorG{
-    float: right;
+
+.feature-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
+
 #price, #RorG{
-    margin-top: 2vh;
+
     padding: 15px 0 15px 15px;
-    width: 160px;
+    width: 35%;
     border: none;
     border-radius: 35px;
     font-size: 30px;
@@ -47,6 +38,7 @@ body {
     opacity: 0;
     transition: opacity 1s, background-color 0.7s;
 }
+
 #price::placeholder, #RorG::placeholder {
     color: black;
 }
@@ -64,32 +56,26 @@ button:active{
     background-color: white;
     color: black;
 }
-.row1,.row2,.row3,.row4,.row5{
-  display: flex; justify-content: space-around;
-  margin-bottom: 7px;
-}
-.row1 button, #swapBtn{
+
+#fn{
     color: black;
     background-color: rgb(165, 165, 165);
 }
-.row1 button:last-child {
-  color: white;
-}
-.row1 button:active, #swapBtn:active {
+#fn:active {
     background-color: white;
 }
-button:last-child {
+#opr {
     font-size: 30px;
     background-color: rgb(240, 157, 2);
 }
-button:last-child:active {
+#opr:active {
     background-color: rgb(254, 200, 99);
 }
-.row5 button:last-child {
+#equal {
     color: black;
     background-color: rgb(14, 181, 14);
     width: 176px; border-radius: 30px;
 }
-.row5 button:last-child:active {
+#equal:active {
     background-color: rgb(2, 253, 2);
 }
