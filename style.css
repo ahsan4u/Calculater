@@ -20,13 +20,11 @@ body {
     margin: 0 auto;
     width: 98%;
     resize: none;
-    text-align: right;
     background-color: transparent;
     border: none;
     font-size: 40px;
     color: white;
     height: 270px;
-    direction: rtl;
 }
 
 .feature-container {
