@@ -3,32 +3,34 @@
     font-family: "Convergence", sans-serif;
 }
 body {
+    margin: 0 auto;
+    max-width: 500px;
     background-color: black;
 }
 
 .mainInputA {
     display: block;
-    width: 97vw;
+    width: 95%;
     margin: 10px auto;
-    line-height: 1.5;
     resize: none;
     text-align: right;
     background-color: transparent;
-    border: none;
-    font-size: 40px;
-    color: white;
+    border: none;
+    font-size: 40px;
+    color: white;
+    border: 1px solid red;
+    height: 270px;
 }
 
 .feature-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #price, #RorG{
-
     padding: 15px 0 15px 15px;
-    width: 35%;
+    width: 42%;
     border: none;
     border-radius: 35px;
     font-size: 30px;
@@ -44,13 +46,29 @@ body {
 #price {
     background-color: rgb(2, 253, 2);
 }
-#swapBtn,button{
+
+.buttons {
+    display: grid;
+    width: 100%;
+    position: fixed; bottom: 0;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    place-items: center;
+}
+
+@media only screen and (min-width: 900px) {
+    .buttons { max-width: 500px; }
+}
+
+button{
+    margin-bottom: 10px;
     background-color: rgb(51, 51, 51);
     color: white;
     font-size: 25px;
-    width: 80px; height: 60px;
+    width: 90%; height: 70px;
     border: none; border-radius: 50%;    
 }
+
 button:active{
     background-color: white;
     color: black;
@@ -64,16 +82,20 @@ button:active{
     background-color: white;
 }
 #opr {
-    font-size: 30px;
+    font-size: 40px;
+    color: rgb(210, 247, 242);
     background-color: rgb(240, 157, 2);
 }
 #opr:active {
     background-color: rgb(254, 200, 99);
+    color: black;
 }
 #equal {
     color: black;
     background-color: rgb(14, 181, 14);
-    width: 176px; border-radius: 30px;
+    border-radius: 40px;
+    font-size: 35px;
+    grid-column: span 2;
 }
 #equal:active {
     background-color: rgb(2, 253, 2);
