@@ -23,7 +23,7 @@ numBtns.forEach((numBtn)=> {
         mainInput.value = numStr;
         if(numStr.length > 10){
           mainInput.style.fontSize = "50px";
-          if(numStr.length > 13) {
+          if(numStr.length > 12) {
             mainInput.style.fontSize = "40px";
             if(numStr.length > 16) {
              mainInput.style.fontSize = "30px";
