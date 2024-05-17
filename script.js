@@ -21,6 +21,8 @@ numBtns.forEach((numBtn)=> {
       } else {
         numStr += btnText;
         mainInput.value = numStr;
+        if(mainInput.value > 8){
+        }
       }
       
     } else if(equal.textContent.includes("=>") == true) {
