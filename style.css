@@ -11,6 +11,8 @@ body {
 .mainInput {
     width: 95%;
     margin: 10px auto;
+    border: 1px solid red;
+    border-radius: 5px;
 }
 
 .mainInputA {
@@ -22,7 +24,6 @@ body {
     border: none;
     font-size: 40px;
     color: white;
-    border: 1px solid red;
     height: 270px;
 }
 
