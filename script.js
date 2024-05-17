@@ -22,10 +22,19 @@ numBtns.forEach((numBtn)=> {
         numStr += btnText;
         mainInput.value = numStr;
         if(numStr.length > 11){
-           mainInput.style.fontSize = "50px";
-           if(mainInput.value > 15) {
-
-           }
+          mainInput.style.fontSize = "50px";
+          if(numStr.length > 13) {
+            mainInput.style.fontSize = "40px";
+            if(numStr.length > 25) {
+             mainInput.style.fontSize = "30px";
+            } else {
+             mainInput.style.fontSize = "40px";
+            }
+          } else {
+            mainInput.style.fontSize = "50px";
+          }
+        } else {
+          mainInput.style.fontSize = "60px";
         }
       }
       
