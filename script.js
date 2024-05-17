@@ -21,7 +21,7 @@ numBtns.forEach((numBtn)=> {
       } else {
         numStr += btnText;
         mainInput.value = numStr;
-        if(mainInput.value > 11){
+        if(numStr.length > 11){
            mainInput.style.fontSize = "50px";
            if(mainInput.value > 15) {
 
