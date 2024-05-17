@@ -8,10 +8,14 @@ body {
     background-color: black;
 }
 
-.mainInputA {
-    display: block;
+.mainInput {
     width: 95%;
     margin: 10px auto;
+}
+
+.mainInputA {
+    width: 100%;
+    padding: 0 4px;
     resize: none;
     text-align: right;
     background-color: transparent;
