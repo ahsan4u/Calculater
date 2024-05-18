@@ -12,8 +12,8 @@ body {
     width: 95%;
     margin: 10px auto;
     border-top: 1px dashed gray;
-    border-bottom: 1px dashed gray;
-    border-radius: 5px;
+    border-bottom: 1px dashed lightgray;
+    border-radius: 10px;
 }
 
 .mainInputA {
