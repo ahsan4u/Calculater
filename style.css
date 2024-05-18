@@ -11,22 +11,24 @@ body {
 .mainInput {
     width: 95%;
     margin: 10px auto;
-    border-top: 1px dashed gray;
-    border-bottom: 1px dashed lightgray;
+    border-top: 1px dashed rgb(104, 104, 104);
+    border-bottom: 1px dashed rgb(104, 104, 104);
     border-radius: 10px;
 }
 
 .mainInputA {
     display: block;
-    margin: 0 auto;
     width: 98%;
+    text-align: right;
+    line-height: 1;
     resize: none;
     background-color: transparent;
     border: none;
     font-size: 60px;
     color: white;
     height: 270px;
-    transition: font-size 1s;
+    position: relative; left: 0.7%;
+    transition: top 0.3s, font-size 0.3s;
 }
 
 .feature-container {
@@ -63,8 +65,8 @@ body {
     place-items: center;
 }
 
-@media only screen and (min-width: 900px) {
-    .buttons { max-width: 500px; }
+@media only screen and (min-width: 410px) {
+    body {display: none;}
 }
 
 button{

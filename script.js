@@ -1,4 +1,5 @@
 let mainInput = document.getElementById("mainInput");
+let inputContainer = document.querySelector('.mainInput');
 let fns = document.querySelectorAll('#fn');
 let sbtn = document.querySelector('#fn:last-child');
 let numBtns = document.querySelectorAll('#num');
@@ -6,8 +7,14 @@ let oprBtns = document.querySelectorAll('#opr');
 let price = document.getElementById('price');
 let RorG = document.getElementById('RorG');
 let equal = document.getElementById('equal');
+let style = window.getComputedStyle(mainInput);
 let numStr = ""; let oprStr = ""; let numBtnIs = true;
 let rateStr = ""; let grStr =""; let grResult = "";
+
+const btnContainer = document.querySelector('.buttons');
+const vh = window.innerHeight;
+inputContainer.style.height = `${vh -price.offsetHeight -btnContainer.offsetHeight -30}px`;
+mainInput.style.top = `${inputContainer.offsetHeight -parseFloat(style.getPropertyValue('line-height'))}px`;
 
 numBtns.forEach((numBtn)=> {
   numBtn.addEventListener("click", (e)=>{
@@ -21,23 +28,22 @@ numBtns.forEach((numBtn)=> {
       } else {
         numStr += btnText;
         mainInput.value = numStr;
-        if(numStr.length > 10){
-          mainInput.style.fontSize = "50px";
-          if(numStr.length > 12) {
-            mainInput.style.fontSize = "40px";
-            if(numStr.length > 16) {
-             mainInput.style.fontSize = "30px";
-            } else {
-             mainInput.style.fontSize = "40px";
-            }
-          } else {
-            mainInput.style.fontSize = "50px";
+
+        inputFieldTextSize();
+        inputFieldMotion();
+      }
+
+      if(numStr.length == 22 || numStr.length == 42 || numStr.length == 63) {
+
+        for (let i = numStr.length-1; i >= 5; i--) {
+          const value = numStr.charAt(i);
+          if ((value == '+' || value == '-' || value == '×' || value == '÷')) {
+            numStr = numStr.slice(0, i)+'\n'+numStr.slice(i, numStr.length);
+            mainInput.value = numStr;
+            break;
           }
-        } else {
-          mainInput.style.fontSize = "60px";
         }
       }
-      mainInput = addLineBreaks(mainInput.value);
       
     } else if(equal.textContent.includes("=>") == true) {
       if(rateStr.length < 8) {
@@ -89,11 +95,14 @@ oprBtns.forEach((oprBtn)=>{
 fns.forEach((fn)=> {
   fn.addEventListener('click', (e)=> {
     const fnText = e.target.textContent;
-
+    
     if(fnText == "AC") {
       if(equal.textContent == "=") {
         numStr=""; mainInput.value = numStr;
         mainInput.style.fontSize = "60px";
+        setTimeout(()=> {
+          mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))}px`;
+        },180);
       } else if(equal.textContent.includes("=>") == true) {
         rateStr = ""; price.value = rateStr;
       } else {
@@ -105,21 +114,8 @@ fns.forEach((fn)=> {
         numStr = numStr.slice(0, -1);
         mainInput.value = numStr;
  
-        if(numStr.length > 11){
-          mainInput.style.fontSize = "50px";
-          if(numStr.length > 13) {
-            mainInput.style.fontSize = "40px";
-            if(numStr.length > 17) {
-             mainInput.style.fontSize = "30px";
-            } else {
-             mainInput.style.fontSize = "40px";
-            }
-          } else {
-            mainInput.style.fontSize = "50px";
-          }
-        } else {
-          mainInput.style.fontSize = "60px";
-        }
+        inputFieldTextSize();
+        inputFieldMotion();
 
       } else if(equal.textContent.includes("=>") == true) {
         rateStr = rateStr.slice(0, -1);
@@ -172,7 +168,7 @@ equal.addEventListener('click', (e)=>{
     numStr = numStr.replace(/\n/g, '');
     numStr = eval(numStr).toString();
     mainInput.value = numStr;
-    mainInput.style.fontSize = "40px";
+    mainInput.style.fontSize = "60px";
     
   } else if(btnText.includes("=>") && price.value != "") {
     RorG.style.background = "rgb(2, 253, 2)";
@@ -230,19 +226,80 @@ equal.addEventListener('click', (e)=>{
 });
 
 
-function addLineBreaks(value) {
- const maxLength = 20;
- let result = '';
- let currentLine = '';
 
-  for (let i = 0; i < value.length; i++) {
-    currentLine += value[i];
-    if (currentLine.length >= maxLength && (value[i] === '+' || value[i] === '-' || value[i] === '×' || value[i] === '÷')) {
-    result += currentLine + '\n';
-    currentLine = '';
+
+
+
+
+
+function inputFieldTextSize() {
+  if(numStr.length >= 10){
+    mainInput.style.fontSize = "55px";
+    if(numStr.length >= 11) {
+      mainInput.style.fontSize = "50px";
+      if(numStr.length >= 12) {
+       mainInput.style.fontSize = "45px";
+        if(numStr.length >= 13) {
+         mainInput.style.fontSize = "40px";
+          if(numStr.length >= 14) {
+            mainInput.style.fontSize = "35px";
+          } else {
+            mainInput.style.fontSize = "40px";
+          }
+        } else {
+          mainInput.style.fontSize = "45px";
+        }
+      } else {
+        mainInput.style.fontSize = "50px";
+      }
+    } else {
+      mainInput.style.fontSize = "55px";
     }
+  } else {
+    mainInput.style.fontSize = "60px";
   }
+}
 
- result += currentLine;
- return result;
+
+function inputFieldMotion() {
+  if(numStr.length > 19) {
+    mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*2}px`;
+    if(numStr.length > 38) {
+      mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*3}px`;
+      if(numStr.length > 57) {
+        mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*4}px`;
+        if(numStr.length > 76) {
+          mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*5}px`;
+          if(numStr.length > 95) {
+            mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*6}px`;
+            if(numStr.length > 114) {
+              mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*7}px`;
+              if(numStr.length > 152) {
+                mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*8}px`;
+                if(numStr.length > 171) {
+                  mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*9}px`;
+                } else {
+                  mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*8}px`;
+                }
+              } else {
+                mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*7}px`;
+              }
+            } else {
+              mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*6}px`;
+            }
+          } else {
+            mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*5}px`;
+          }
+        } else {
+          mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*4}px`;
+        }
+      } else {
+        mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*3}px`;
+      }
+    } else {
+      mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*2}px`;
+    }
+  } else {
+    mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))}px`;
+  }
 }
