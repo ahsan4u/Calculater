@@ -37,6 +37,7 @@ numBtns.forEach((numBtn)=> {
           mainInput.style.fontSize = "60px";
         }
       }
+      mainInput = addLineBreaks(mainInput.value);
       
     } else if(equal.textContent.includes("=>") == true) {
       if(rateStr.length < 8) {
@@ -59,12 +60,7 @@ numBtns.forEach((numBtn)=> {
         }
       }
     }
-  
-    if(holdOne.value == "" && numStr.length < 16) {
-      mainInput.style.fontSize = "40px";
-    } else {
-      mainInput.style.fontSize = "30px";
-    }
+
   });     
 });
 
@@ -173,6 +169,7 @@ equal.addEventListener('click', (e)=>{
     }
     numStr = numStr.replace(/÷/g, "/");
     numStr = numStr.replace(/×/g, "*");
+    numStr = numStr.replace(/\n/g, '');
     numStr = eval(numStr).toString();
     mainInput.value = numStr;
     mainInput.style.fontSize = "40px";
@@ -231,3 +228,21 @@ equal.addEventListener('click', (e)=>{
     document.querySelector('.cal').textContent = "Cal";
   }
 });
+
+
+function addLineBreaks(value) {
+ const maxLength = 20;
+ let result = '';
+ let currentLine = '';
+
+  for (let i = 0; i < value.length; i++) {
+    currentLine += value[i];
+    if (currentLine.length >= maxLength && (value[i] === '+' || value[i] === '-' || value[i] === '×' || value[i] === '÷')) {
+    result += currentLine + '\n';
+    currentLine = '';
+    }
+  }
+
+ result += currentLine;
+ return result;
+}
