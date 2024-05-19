@@ -298,7 +298,7 @@ function inputFieldMotion() {
 
 
 function numToNextLineFromOpr() {
-     if(numStr.length > 18 || numStr.length > 36 || numStr.length > 54) {
+     if(numStr.length > 17 || numStr.length > 34 || numStr.length > 51) {
 
         for (let i = numStr.length-1; i >= 5; i--) {
           const value = numStr.charAt(i);
