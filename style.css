@@ -9,6 +9,7 @@ body {
 }
 
 .mainInput {
+    font-family: monospace;
     width: 95%;
     margin: 10px auto;
     border-top: 1px dashed rgb(104, 104, 104);
