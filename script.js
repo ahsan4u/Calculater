@@ -32,18 +32,7 @@ numBtns.forEach((numBtn)=> {
         inputFieldTextSize();
         inputFieldMotion();
       }
-
-      if(numStr.length == 22 || numStr.length == 42 || numStr.length == 63) {
-
-        for (let i = numStr.length-1; i >= 5; i--) {
-          const value = numStr.charAt(i);
-          if ((value == '+' || value == '-' || value == '×' || value == '÷')) {
-            numStr = numStr.slice(0, i)+'\n'+numStr.slice(i, numStr.length);
-            mainInput.value = numStr;
-            break;
-          }
-        }
-      }
+      numToNextLineFromOpr();
       
     } else if(equal.textContent.includes("=>") == true) {
       if(rateStr.length < 8) {
@@ -74,7 +63,7 @@ oprBtns.forEach((oprBtn)=>{
   oprBtn.addEventListener('click', (e)=>{
     let btnText = e.target.textContent
     let li = numStr[numStr.length-1];
-    if(numStr != "" || holdOne.value != "") {
+    if(numStr != "") {
       if(li == "+" || li == "-" || li == "×" || li == "÷")  {
           numStr = numStr.slice(0, -1);
       }
@@ -261,16 +250,17 @@ function inputFieldTextSize() {
 }
 
 
+
 function inputFieldMotion() {
-  if(numStr.length > 19) {
+  if(numStr.length > 18) {
     mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*2}px`;
-    if(numStr.length > 38) {
+    if(numStr.length > 36) {
       mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*3}px`;
-      if(numStr.length > 57) {
+      if(numStr.length > 54) {
         mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*4}px`;
-        if(numStr.length > 76) {
+        if(numStr.length > 72) {
           mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*5}px`;
-          if(numStr.length > 95) {
+          if(numStr.length > 90) {
             mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*6}px`;
             if(numStr.length > 114) {
               mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))*7}px`;
@@ -302,4 +292,21 @@ function inputFieldMotion() {
   } else {
     mainInput.style.top = `${inputContainer.offsetHeight -2 -parseFloat(style.getPropertyValue('line-height'))}px`;
   }
+}
+
+
+
+
+function numToNextLineFromOpr() {
+     if(numStr.length == 22 || numStr.length == 42 || numStr.length == 63) {
+
+        for (let i = numStr.length-1; i >= 5; i--) {
+          const value = numStr.charAt(i);
+          if ((value == '+' || value == '-' || value == '×' || value == '÷')) {
+            numStr = numStr.slice(0, i)+'\n'+numStr.slice(i, numStr.length);
+            mainInput.value = numStr;
+            break;
+          }
+        }
+     }
 }
