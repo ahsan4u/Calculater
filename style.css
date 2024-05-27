@@ -10,26 +10,27 @@ body {
 
 .mainInput {
     font-family: monospace;
-    width: 95%;
+    width: 95%; height: 100%;
     margin: 10px auto;
     border-top: 1px dashed rgb(104, 104, 104);
     border-bottom: 1px dashed rgb(104, 104, 104);
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .mainInputA {
     display: block;
-    width: 98%;
+    width: 100%;
     text-align: right;
     line-height: 1;
-    resize: none;
+    overflow: auto;
     background-color: transparent;
     border: none;
     font-size: 60px;
     color: white;
     height: 270px;
     position: relative; left: 0.7%;
-    transition: top 0.3s, font-size 0.3s;
+    transition: top 0.09s, font-size 0.5s, opacity 0.5s;
 }
 
 .feature-container {
@@ -46,8 +47,18 @@ body {
     font-size: 30px;
     color: black;
     background-color: rgb(83, 209, 244);
-    opacity: 0;
+    opacity: 0; display: none;
     transition: opacity 1s, background-color 0.7s;
+}
+
+#instant-total {
+    border: none;
+    padding: 9px 15px;
+    font-size: 40px;
+    width: 100%; text-align: center;
+    background-color: transparent;
+    color: rgb(3, 250, 229);
+    overflow: auto;
 }
 
 #price::placeholder, #RorG::placeholder {
@@ -65,10 +76,10 @@ body {
     justify-items: center;
     place-items: center;
 }
-
+/* 
 @media only screen and (min-width: 410px) {
     body {display: none;}
-}
+} */
 
 button{
     margin-bottom: 10px;
