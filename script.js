@@ -104,7 +104,6 @@ fns.forEach((fn)=> {
       }
     }else if(fnText == "Del") {
       if(equal.textContent == "=") {
-        mainInput.lastElementChild.textContent = mainInput.lastElementChild.textContent.slice(0, -1);
         if(mainInput.lastElementChild.textContent == '') {
           mainInput.innerHTML = mainInput.innerHTML.slice(0, -13);
           if(MovingValue < 8) {
@@ -113,6 +112,7 @@ fns.forEach((fn)=> {
             MovingValue--;
           }
         }
+        mainInput.lastElementChild.textContent = mainInput.lastElementChild.textContent.slice(0, -1);
         inputFieldTextSize();
         MovingValue = 1;
         if(mainInput.innerHTML == '') {
